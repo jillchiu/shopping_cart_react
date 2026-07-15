@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# 🍱 Jber Eats (React Shopping Cart SPA)  
+A modern, interactive Single-Page Application (SPA) built with React 18, demonstrating global state management, complex data filtering, and external API integration.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🔗 Live Demo: Jber Eats on GitHub Pages  
 
-## Available Scripts
+This project represents a modern approach to frontend development. It moves away from traditional DOM manipulation and embraces React's declarative, component-based architecture. The core logic of the shopping cart is completely decoupled from the UI using the React Context API, ensuring scalable and clean state management.  
 
-In the project directory, you can run:
+## ✨ Key Features  
+### Global State Management (Context API): * Cart data and operations (add, decrease, remove, clear) are centralized within a CartProvider.
 
-### `npm start`
+* Avoids prop-drilling by allowing any component (Body, Header, CartToggle) to access the cart state seamlessly.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Advanced Multi-Criteria Filtering: * Text Search: Regex-validated search bar restricts input to alphabetic characters to filter products by name.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Dynamic Checkboxes: Users can apply combinatorial filters based on Origin (e.g., Pork, Chicken) and Taste (e.g., Sweet, Salty, Sour, Spicy). The product grid updates in real-time as multiple filters are stacked.
 
-### `npm test`
+### Smart Cart System with Partial Checkout: * Users can toggle specific items inside the cart using checkboxes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* The total price is dynamically calculated only for the currently selected items, allowing for partial checkouts.
 
-### `npm run build`
+### Live Weather Integration (External API): * Integrates the weather.tsukumijima.net API to fetch real-time Japanese weather forecasts.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Features dynamic <select> dropdowns for all Japanese prefectures/cities and available dates.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Uses React useEffect to trigger asynchronous fetch requests whenever the user changes their location or date selection.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Interactive UI/UX: * CSS animations (fadeIn, fadeOut) for the slide-out cart toggle.
 
-### `npm run eject`
+* Hover-based conditional rendering and styling for product cards and cart items.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧠 Architectural Highlights  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```text
+src/
+ ├── index.js          # App Entry Point & Provider Wrapping
+ ├── CartContext.js    # Global State Manager (Business Logic)
+ ├── Header.js         # Navigation & Async Weather Fetching
+ ├── Body.js           # Filtering Logic & Product Grid
+ └── Data.js           # Mock Product Data & Prefecture Constants
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Separation of Concerns: The UI components simply subscribe to the useCart hook. They do not handle the complex logic of checking if an item exists, modifying quantities, or calculating totals.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* mmutable State Updates: Cart updates are handled immutably by mapping and filtering previous states, adhering to React best practices to prevent unintended re-renders.
 
-## Learn More
+## 🛠️ Tech Stack  
+* Core: React 18, React Hooks (useState, useEffect, useContext)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Styling: Vanilla CSS3 (Flexbox, CSS Animations)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* API Communication: Native JavaScript Fetch API
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Deployment: gh-pages
