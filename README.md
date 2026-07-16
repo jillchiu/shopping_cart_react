@@ -145,3 +145,11 @@ If I were rebuilding it today, I would make several architectural improvements, 
 * Optimizing derived state with useMemo
 
 Rather than rewriting the project entirely, I keep it in its original form because it accurately reflects my growth over time.
+
+## 🚀 Evolution
+
+This project revisits an earlier shopping cart I originally built with PHP.
+
+Instead of relying on PHP Session, this version manages application state entirely on the client using React Context API.
+
+Building both versions helped me understand how the same business requirements can be implemented using different architectures.
