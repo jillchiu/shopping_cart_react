@@ -1,6 +1,6 @@
-# Shopping Cart (React)
+# 🛒 Shopping Cart (React)
 
-## Overview
+## 🧪 Overview
 
 This project is an archived React application developed during my early frontend learning journey (around 2022–2024).
 
@@ -8,17 +8,17 @@ Unlike my other Shopping Cart project built with PHP + MySQL, this version was i
 
 Although it reflects my earlier coding style, I have chosen to keep it public because it documents my progression as a frontend developer and demonstrates how I approached the same business domain using different technologies.
 
-## Live Demo
+## 🌐 Live Demo
 
 🔗 Demo: https://jillchiu.github.io/shopping_cart_react/
 
 📦 Source Code: https://github.com/jillchiu/shopping_cart_react
 
-## Screenshots
+## 📷 Screenshots
 
 ![index](https://i.imgur.com/8P5Yejd.png)
 
-## Features
+## ✨ Features
 
 ### Product Browsing
 
@@ -50,7 +50,7 @@ Users can:
 * Display weather condition
 * Display minimum and maximum temperature
 
-## Technologies
+## 🛠 Tech Stack
 
 * React 18
 * Context API
@@ -61,7 +61,7 @@ Users can:
 * CSS
 * Create React App
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 src/
@@ -83,7 +83,7 @@ Main responsibilities:
 * useFormInput — Custom Hook example
 * store — Redux practice file created during React learning
 
-## State Management
+## 🧩 State Management
 
 Shopping cart data is managed entirely on the client using React Context.
 
@@ -98,7 +98,7 @@ The implementation includes:
 
 No backend or database is required.
 
-## Why There Are Two Shopping Cart Projects
+## 📚 Why There Are Two Shopping Cart Projects
 
 This repository focuses on frontend state management.
 
@@ -113,7 +113,7 @@ Although both projects implement similar shopping cart functionality, they solve
 
 Together they demonstrate my ability to implement the same business requirements using different technologies.
 
-## Learning Outcomes
+## 🧠 Learning Outcomes
 
 This project helped me become familiar with:
 
@@ -128,7 +128,7 @@ This project helped me become familiar with:
 
 It also includes several experimental files created while learning React, such as Redux and reusable custom hooks.
 
-## Looking Back
+## ⚠ Legacy Project
 
 This repository represents an earlier stage of my React learning journey.
 
