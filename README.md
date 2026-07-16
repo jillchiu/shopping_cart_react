@@ -1,53 +1,147 @@
-# 🍱 Jber Eats (React Shopping Cart SPA)  
-A modern, interactive Single-Page Application (SPA) built with React 18, demonstrating global state management, complex data filtering, and external API integration.
+# Shopping Cart (React)
 
-## 🔗 Live Demo: Jber Eats on GitHub Pages  
+## Overview
 
-This project represents a modern approach to frontend development. It moves away from traditional DOM manipulation and embraces React's declarative, component-based architecture. The core logic of the shopping cart is completely decoupled from the UI using the React Context API, ensuring scalable and clean state management.  
+This project is an archived React application developed during my early frontend learning journey (around 2022–2024).
 
-## ✨ Key Features  
-### Global State Management (Context API): * Cart data and operations (add, decrease, remove, clear) are centralized within a CartProvider.
+Unlike my other Shopping Cart project built with PHP + MySQL, this version was intentionally implemented using React only, without any backend or database. The goal was to recreate the same shopping cart workflow entirely on the client side and strengthen my understanding of React state management.
 
-* Avoids prop-drilling by allowing any component (Body, Header, CartToggle) to access the cart state seamlessly.
+Although it reflects my earlier coding style, I have chosen to keep it public because it documents my progression as a frontend developer and demonstrates how I approached the same business domain using different technologies.
 
-### Advanced Multi-Criteria Filtering: * Text Search: Regex-validated search bar restricts input to alphabetic characters to filter products by name.
+## Live Demo
 
-* Dynamic Checkboxes: Users can apply combinatorial filters based on Origin (e.g., Pork, Chicken) and Taste (e.g., Sweet, Salty, Sour, Spicy). The product grid updates in real-time as multiple filters are stacked.
+🔗 Demo: https://jillchiu.github.io/shopping_cart_react/
 
-### Smart Cart System with Partial Checkout: * Users can toggle specific items inside the cart using checkboxes.
+📦 Source Code: https://github.com/jillchiu/shopping_cart_react
 
-* The total price is dynamically calculated only for the currently selected items, allowing for partial checkouts.
+## Screenshots
 
-### Live Weather Integration (External API): * Integrates the weather.tsukumijima.net API to fetch real-time Japanese weather forecasts.
+![index](https://i.imgur.com/8P5Yejd.png)
 
-* Features dynamic <select> dropdowns for all Japanese prefectures/cities and available dates.
+## Features
 
-* Uses React useEffect to trigger asynchronous fetch requests whenever the user changes their location or date selection.
+### Product Browsing
 
-### Interactive UI/UX: * CSS animations (fadeIn, fadeOut) for the slide-out cart toggle.
+* Browse available products
+* Keyword search
+* Multi-condition filtering
+    * Product origin
+    * Taste
+* Responsive product grid
 
-* Hover-based conditional rendering and styling for product cards and cart items.
+### Shopping Cart
+* Add products to cart
+* Increase / decrease quantity
+* Remove products
+* Select items for checkout
+* Calculate total price
+* Empty cart
+* Simulated checkout flow
 
-## 🧠 Architectural Highlights  
+### Weather Widget
+
+A weather widget is integrated into the header using a public Japanese Weather API.
+
+Users can:
+
+* Select prefecture
+* Select city
+* Switch forecast date
+* Display weather condition
+* Display minimum and maximum temperature
+
+## Technologies
+
+* React 18
+* Context API
+* React Hooks
+* Custom Hooks
+* Fetch API
+* JavaScript (ES6)
+* CSS
+* Create React App
+
+## Project Structure
 
 ```text
 src/
- ├── index.js          # App Entry Point & Provider Wrapping
- ├── CartContext.js    # Global State Manager (Business Logic)
- ├── Header.js         # Navigation & Async Weather Fetching
- ├── Body.js           # Filtering Logic & Product Grid
- └── Data.js           # Mock Product Data & Prefecture Constants
+├── Header.jsx
+├── Body.jsx
+├── CartContext.jsx
+├── Data.js
+├── useFormInput.js
+├── store.js
+└── index.js
 ```
 
-* Separation of Concerns: The UI components simply subscribe to the useCart hook. They do not handle the complex logic of checking if an item exists, modifying quantities, or calculating totals.
+Main responsibilities:
 
-* mmutable State Updates: Cart updates are handled immutably by mapping and filtering previous states, adhering to React best practices to prevent unintended re-renders.
+* Header — Navigation and weather widget
+* Body — Product listing, search, filters and shopping cart UI
+* CartContext — Global cart state management using Context API
+* Data — Product data and weather location dataset
+* useFormInput — Custom Hook example
+* store — Redux practice file created during React learning
 
-## 🛠️ Tech Stack  
-* Core: React 18, React Hooks (useState, useEffect, useContext)
+## State Management
 
-* Styling: Vanilla CSS3 (Flexbox, CSS Animations)
+Shopping cart data is managed entirely on the client using React Context.
 
-* API Communication: Native JavaScript Fetch API
+The implementation includes:
 
-* Deployment: gh-pages
+* Global cart state
+* Context Provider
+* Custom hook (useCart)
+* Quantity management
+* Product selection
+* Checkout simulation
+
+No backend or database is required.
+
+## Why There Are Two Shopping Cart Projects
+
+This repository focuses on frontend state management.
+
+I also created another Shopping Cart application using PHP + MySQL, which focuses on backend CRUD operations and database interaction.
+
+Although both projects implement similar shopping cart functionality, they solve the problem from different perspectives.
+
+| Project             | Primary Focus                                 |
+| ------------------- | --------------------------------------------- |
+| PHP Shopping Cart   | Backend, CRUD, Database                       |
+| React Shopping Cart | Frontend, React State Management, Context API |
+
+Together they demonstrate my ability to implement the same business requirements using different technologies.
+
+## Learning Outcomes
+
+This project helped me become familiar with:
+
+* React component composition
+* Context API
+* React Hooks
+* Custom Hooks
+* Conditional rendering
+* State-driven UI
+* Product filtering
+* Working with external REST APIs
+
+It also includes several experimental files created while learning React, such as Redux and reusable custom hooks.
+
+## Looking Back
+
+This repository represents an earlier stage of my React learning journey.
+
+If I were rebuilding it today, I would make several architectural improvements, including:
+
+* Migrating to TypeScript
+* Using Vite instead of Create React App
+* Splitting large components into smaller reusable components
+* Separating UI from business logic
+* Extracting filtering logic into reusable hooks
+* Using React Router
+* Improving folder organization
+* Adopting CSS Modules or Tailwind CSS
+* Optimizing derived state with useMemo
+
+Rather than rewriting the project entirely, I keep it in its original form because it accurately reflects my growth over time.
